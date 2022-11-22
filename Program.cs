@@ -35,7 +35,9 @@ namespace ConsoleApp1{
             public static int num_of_users = 0;
             int _User_Id;
 
-            public string UserId{ get; }
+            public int UserId{ get {
+                    return _User_Id;
+                } }
 
             public string Name {
                 get {
@@ -64,7 +66,7 @@ namespace ConsoleApp1{
             public User(string name = DEFAULT_NAME, string surname = DEFAULT_SURNAME)
             {
                 //Incrementing the number of users
-                _User_Id++;
+                num_of_users++;
 
                 //Setting the properties
                 _Name = ValidateString(name, "John");
@@ -76,7 +78,7 @@ namespace ConsoleApp1{
             //Methods
             public void Greet()
             {
-                Console.WriteLine(String.Format("Hi, my name is {0} & my surname is {1}", Name, Surname));
+                Console.WriteLine(String.Format("Hi, my name is {0} & my surname is {1}. My user number is {2}", Name, Surname, UserId));
             }
 
             // Helper methods
